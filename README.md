@@ -15,3 +15,8 @@ Paste link. Agent sets skills.
 - `contracts/` : 에이전트 지침 계약 문서
 - `packs/` : 스킬 팩 데이터
 - `examples/` : 사용자 플로우 예시
+- `site/` : GitHub Pages 정적 사이트
+
+## GitHub Pages
+- 배포 방식: GitHub Actions (`.github/workflows/pages.yml`)
+- 기본 URL: `https://qpwoei0123.github.io/JustPaste/`
