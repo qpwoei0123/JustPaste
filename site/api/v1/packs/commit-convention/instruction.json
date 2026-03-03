@@ -1,0 +1,15 @@
+{
+  "packId": "commit-convention",
+  "revision": 1,
+  "contractVersion": "instruction.v0",
+  "steps": [
+    "Read pack metadata and instruction",
+    "Show skill summary and cautions",
+    "Ask user to choose apply scope (project/global)",
+    "Ask overwrite confirmation when needed",
+    "Apply and report result"
+  ],
+  "source": {
+    "instructionPath": "packs/commit-convention/instruction.md"
+  }
+}

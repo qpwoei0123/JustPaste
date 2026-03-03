@@ -20,3 +20,8 @@ Paste link. Agent sets skills.
 ## GitHub Pages
 - 배포 방식: GitHub Actions (`.github/workflows/pages.yml`)
 - 기본 URL: `https://qpwoei0123.github.io/JustPaste/`
+
+## API (MVP, static)
+- Pack instruction endpoint (example):
+  - `/api/v1/packs/commit-convention/instruction.json`
+  - `/api/v1/packs/pr-clarity-template/instruction.json`
