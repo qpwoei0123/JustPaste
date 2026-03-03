@@ -1,0 +1,15 @@
+{
+  "packId": "pr-clarity-template",
+  "revision": 1,
+  "contractVersion": "instruction.v0",
+  "steps": [
+    "Read pack metadata and instruction",
+    "Show template sections to user",
+    "Ask user to choose apply scope (project/global)",
+    "Ask overwrite confirmation when needed",
+    "Apply and report result"
+  ],
+  "source": {
+    "instructionPath": "packs/pr-clarity-template/instruction.md"
+  }
+}

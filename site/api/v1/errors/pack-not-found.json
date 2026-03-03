@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "PACK_NOT_FOUND",
+    "message": "No pack found for given packId"
+  }
+}
