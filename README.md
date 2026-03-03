@@ -9,3 +9,9 @@ Paste link. Agent sets skills.
 - 작은 단위 이슈/커밋
 - 라벨 기반 우선순위/상태 관리
 - MVP는 에이전트 실시간 세팅 철학 유지
+
+## Structure
+- `docs/` : 제품/기획 문서
+- `contracts/` : 에이전트 지침 계약 문서
+- `packs/` : 스킬 팩 데이터
+- `examples/` : 사용자 플로우 예시
