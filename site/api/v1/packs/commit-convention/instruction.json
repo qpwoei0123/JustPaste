@@ -3,11 +3,11 @@
   "revision": 1,
   "contractVersion": "instruction.v0",
   "steps": [
-    "팩 메타데이터와 지침을 읽습니다.",
-    "스킬 요약과 주의점을 사용자에게 보여줍니다.",
-    "적용 범위(프로젝트/전역)를 사용자에게 묻습니다.",
-    "덮어쓰기 가능성이 있으면 사용자 승인을 받습니다.",
-    "적용 후 변경 결과를 요약 보고합니다."
+    "Read pack metadata and instruction.",
+    "Show skill summary and cautions to the user.",
+    "Ask user for apply scope (project/global).",
+    "If overwrite risk exists, request explicit approval.",
+    "Apply and report changed outputs."
   ],
   "source": {
     "instructionPath": "packs/commit-convention/instruction.md"

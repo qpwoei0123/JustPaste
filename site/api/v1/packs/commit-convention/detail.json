@@ -1,8 +1,8 @@
 {
   "id": "commit-convention",
   "revision": 1,
-  "name": "커밋 컨벤션",
-  "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
+  "name": "Commit Convention",
+  "summary": "Standardize commit messages with a conventional format.",
   "instructionPath": "packs/commit-convention/instruction.md",
   "applyScopes": ["project", "global"]
 }
