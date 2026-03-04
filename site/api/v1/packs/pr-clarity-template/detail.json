@@ -1,1 +1,8 @@
-{"id":"pr-clarity-template","revision":1,"name":"PR Clarity Template","summary":"Clear PR body guidance pack","instructionPath":"packs/pr-clarity-template/instruction.md","applyScopes":["project","global"]}
+{
+  "id": "pr-clarity-template",
+  "revision": 1,
+  "name": "PR 명확화 템플릿",
+  "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
+  "instructionPath": "packs/pr-clarity-template/instruction.md",
+  "applyScopes": ["project", "global"]
+}

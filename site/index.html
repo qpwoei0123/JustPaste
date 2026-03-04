@@ -3,32 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JustPaste</title>
+    <title>JustPaste | 에이전트 스킬 세팅 허브</title>
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 760px; margin: 48px auto; padding: 0 16px; line-height: 1.6; }
-      h1 { margin-bottom: 8px; }
-      .muted { color: #666; }
-      code { background: #f3f3f3; padding: 2px 6px; border-radius: 6px; }
-      ul { padding-left: 20px; }
+      :root {
+        --bg: #0b1020;
+        --card: #121a31;
+        --soft: #1b2748;
+        --text: #eef3ff;
+        --muted: #a8b5d9;
+        --accent: #7aa2ff;
+        --accent2: #57e6c2;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: radial-gradient(1200px 600px at 20% -10%, #1d2a52 0%, transparent 55%), var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+      }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 40px 18px 64px; }
+      .hero { background: linear-gradient(135deg, #18244a, #122039); border: 1px solid #2a3e73; border-radius: 20px; padding: 28px; }
+      h1 { margin: 0 0 8px; font-size: 2rem; }
+      h2 { margin: 34px 0 10px; font-size: 1.25rem; }
+      p { margin: 8px 0; color: var(--muted); }
+      .tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #213464; color: #d7e3ff; font-size: 12px; margin-bottom: 10px; }
+      .card { background: var(--card); border: 1px solid #253968; border-radius: 14px; padding: 16px; margin-top: 12px; }
+      .skill-title { color: #fff; font-weight: 700; margin-bottom: 6px; }
+      .skill-id { color: var(--accent2); font-size: 13px; margin-bottom: 8px; }
+      ol { margin: 8px 0 0 18px; color: #dbe5ff; }
+      li { margin: 4px 0; }
+      code { background: var(--soft); color: #d9e6ff; border: 1px solid #2d4276; padding: 2px 7px; border-radius: 8px; }
+      a { color: var(--accent); }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
+      .grid { display: grid; gap: 12px; }
     </style>
   </head>
   <body>
-    <h1>JustPaste</h1>
-    <p class="muted">Paste link. Agent sets skills.</p>
+    <main class="wrap">
+      <section class="hero">
+        <span class="tag">JustPaste</span>
+        <h1>링크만 붙여넣으면, 에이전트가 스킬을 세팅합니다</h1>
+        <p>이 페이지는 사람도 읽을 수 있지만, 핵심은 <strong>에이전트가 지침을 읽고 바로 적용</strong>할 수 있도록 설계되어 있습니다.</p>
+        <p><strong>중요:</strong> 레포 경로가 달라도 동작하도록 API는 상대경로 기준으로 제공합니다.</p>
+      </section>
 
-    <h2>What is this?</h2>
-    <p>
-      JustPaste는 링크 하나를 에이전트에 붙여넣으면, 에이전트가 지침을 읽고
-      스킬 선택/적용을 안내하는 AI-우선 스킬 세팅 허브입니다.
-    </p>
+      <h2>에이전트용 API 엔드포인트</h2>
+      <div class="card mono grid">
+        <div><a href="./api/v1/packs/index.json">./api/v1/packs/index.json</a> (스킬 목록)</div>
+        <div><a href="./api/v1/packs/commit-convention/instruction.json">./api/v1/packs/commit-convention/instruction.json</a></div>
+        <div><a href="./api/v1/packs/pr-clarity-template/instruction.json">./api/v1/packs/pr-clarity-template/instruction.json</a></div>
+      </div>
 
-    <h2>Demo packs</h2>
-    <ul>
-      <li><code>commit-convention</code></li>
-      <li><code>pr-clarity-template</code></li>
-    </ul>
+      <h2>배포 페이지에 명시된 스킬 내용</h2>
 
-    <h2>Repository</h2>
-    <p><a href="https://github.com/qpwoei0123/JustPaste">github.com/qpwoei0123/JustPaste</a></p>
+      <article class="card">
+        <div class="skill-title">커밋 컨벤션 스킬</div>
+        <div class="skill-id">skill id: <code>commit-convention</code></div>
+        <p>목적: 커밋 메시지를 컨벤셔널 포맷으로 통일해 협업 가독성을 높입니다.</p>
+        <ol>
+          <li>현재 저장소의 기존 커밋 스타일을 확인합니다.</li>
+          <li>사용자에게 기본 형식 <code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code> 를 안내합니다.</li>
+          <li>적용 범위(프로젝트/전역)를 사용자에게 확인합니다.</li>
+          <li>기존 규칙 파일이 있으면 덮어쓰기 여부를 확인합니다.</li>
+          <li>반영 후 샘플 커밋 2개를 제시합니다.</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <div class="skill-title">PR 명확화 템플릿 스킬</div>
+        <div class="skill-id">skill id: <code>pr-clarity-template</code></div>
+        <p>목적: PR 설명을 요약/범위/검증 중심으로 통일해 리뷰 속도를 높입니다.</p>
+        <ol>
+          <li>기존 PR 템플릿 존재 여부를 확인합니다.</li>
+          <li>요약, 변경 내용, 범위, 검증, 관련 이슈 구조를 제시합니다.</li>
+          <li>적용 범위(현재 프로젝트/전역 기본값)를 확인합니다.</li>
+          <li>기존 템플릿 병합 또는 대체 여부를 확인합니다.</li>
+          <li>샘플 PR 본문 1개를 함께 제공합니다.</li>
+        </ol>
+      </article>
+
+      <h2>저장소</h2>
+      <p><a href="https://github.com/qpwoei0123/JustPaste">https://github.com/qpwoei0123/JustPaste</a></p>
+    </main>
   </body>
 </html>
