@@ -13,3 +13,6 @@
 - Malicious links
 - Unintended global writes
 - Silent overwrite
+
+## Trust policy
+- contracts/TRUST_POLICY_V1.json
