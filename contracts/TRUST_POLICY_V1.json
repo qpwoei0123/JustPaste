@@ -1,0 +1,10 @@
+{
+  "version": "trust.v1",
+  "defaultMode": "confirm",
+  "rules": [
+    { "action": "overwrite_existing_file", "risk": "high", "require": ["summary", "explicit_yes"] },
+    { "action": "delete_file", "risk": "high", "require": ["summary", "explicit_yes"] },
+    { "action": "create_file", "risk": "medium", "require": ["summary", "confirm"] },
+    { "action": "read_file", "risk": "low", "require": [] }
+  ]
+}
