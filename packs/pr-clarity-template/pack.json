@@ -4,6 +4,21 @@
   "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
   "revision": 1,
   "risk": "low",
-  "applyScopes": ["project", "global"],
-  "tags": ["github", "pull-request", "template"]
+  "applyScopes": [
+    "project",
+    "global"
+  ],
+  "tags": [
+    "github",
+    "pull-request",
+    "template"
+  ],
+  "agentCompatibility": {
+    "minimumContractVersion": "instruction.v0",
+    "supportedApplyModes": [
+      "dry-run",
+      "apply"
+    ],
+    "requiresConfirmation": true
+  }
 }

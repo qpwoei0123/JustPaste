@@ -5,3 +5,8 @@
 ## demo packs
 - `commit-convention`
 - `pr-clarity-template`
+
+## Agent compatibility fields
+- minimumContractVersion
+- supportedApplyModes
+- requiresConfirmation
