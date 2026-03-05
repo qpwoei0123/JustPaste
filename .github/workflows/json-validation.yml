@@ -12,3 +12,5 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/validate-json-schemas.mjs
+
+      - run: node scripts/check-api-snapshots.mjs
