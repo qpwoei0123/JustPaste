@@ -6,6 +6,7 @@
 ## Success Response (200)
 ```json
 {
+  "schemaVersion": "2026-03-01",
   "packId": "commit-convention",
   "revision": 1,
   "contractVersion": "instruction.v0",
@@ -23,6 +24,7 @@
 ## Error Response (404)
 ```json
 {
+  "schemaVersion": "2026-03-01",
   "error": {
     "code": "PACK_NOT_FOUND",
     "message": "No pack found for given packId"

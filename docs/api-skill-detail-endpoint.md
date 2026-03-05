@@ -1,4 +1,18 @@
 # Skill Detail Endpoint (v1)
 
-- `GET /api/v1/packs/commit-convention/detail.json`
-- `GET /api/v1/packs/pr-clarity-template/detail.json`
+## Endpoint
+- `GET /api/v1/packs/{packId}/detail.json`
+
+## Success Response (200)
+```json
+{
+  "schemaVersion": "2026-03-01",
+  "id": "commit-convention",
+  "name": "Commit Convention",
+  "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
+  "revision": 1,
+  "risk": "low",
+  "applyScopes": ["project", "global"],
+  "tags": ["git", "commit", "convention"]
+}
+```
