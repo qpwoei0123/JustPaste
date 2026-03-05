@@ -4,6 +4,21 @@
   "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
   "revision": 1,
   "risk": "low",
-  "applyScopes": ["project", "global"],
-  "tags": ["git", "commit", "convention"]
+  "applyScopes": [
+    "project",
+    "global"
+  ],
+  "tags": [
+    "git",
+    "commit",
+    "convention"
+  ],
+  "agentCompatibility": {
+    "minimumContractVersion": "instruction.v0",
+    "supportedApplyModes": [
+      "dry-run",
+      "apply"
+    ],
+    "requiresConfirmation": true
+  }
 }
