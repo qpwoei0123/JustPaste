@@ -1,0 +1,27 @@
+name: Work Item
+description: type/priority/area/risk를 강제하는 이슈 템플릿
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: type
+      options: [feature, chore, docs, bug]
+    validations: { required: true }
+  - type: dropdown
+    id: priority
+    attributes:
+      label: priority
+      options: [p0, p1, p2]
+    validations: { required: true }
+  - type: dropdown
+    id: area
+    attributes:
+      label: area
+      options: [instruction, skill-api, installer, ui]
+    validations: { required: true }
+  - type: dropdown
+    id: risk
+    attributes:
+      label: risk
+      options: [low, medium, high]
+    validations: { required: true }
