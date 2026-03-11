@@ -1,8 +1,18 @@
 {
+  "schemaVersion": "2026-03-11",
   "id": "pr-clarity-template",
-  "revision": 1,
   "name": "PR Clarity Template",
-  "summary": "Standardize PR descriptions with a concise review-first structure.",
-  "instructionPath": "packs/pr-clarity-template/instruction.md",
-  "applyScopes": ["project", "global"]
+  "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
+  "revision": 2,
+  "risk": "low",
+  "applyScopes": [
+    "project",
+    "global"
+  ],
+  "tags": [
+    "github",
+    "pull-request",
+    "template"
+  ],
+  "contractVersion": "instruction.v1"
 }

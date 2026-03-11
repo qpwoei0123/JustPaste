@@ -1,8 +1,18 @@
 {
+  "schemaVersion": "2026-03-11",
   "id": "commit-convention",
-  "revision": 1,
   "name": "Commit Convention",
-  "summary": "Standardize commit messages with a conventional format.",
-  "instructionPath": "packs/commit-convention/instruction.md",
-  "applyScopes": ["project", "global"]
+  "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
+  "revision": 2,
+  "risk": "low",
+  "applyScopes": [
+    "project",
+    "global"
+  ],
+  "tags": [
+    "git",
+    "commit",
+    "convention"
+  ],
+  "contractVersion": "instruction.v1"
 }

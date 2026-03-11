@@ -1,1 +1,40 @@
-{ "$schema":"https://json-schema.org/draft/2020-12/schema", "allOf":[{"$ref":"./common.schema.json"}], "type":"object", "required":["packId","revision","contractVersion","steps","source"], "properties":{"packId":{"type":"string"},"revision":{"type":"integer"},"contractVersion":{"type":"string"},"steps":{"type":"array","items":{"type":"string"}},"source":{"type":"object","required":["instructionPath"],"properties":{"instructionPath":{"type":"string"}}}} }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [{ "$ref": "./common.schema.json" }],
+  "type": "object",
+  "required": ["packId", "revision", "contractVersion", "confirmationFlow", "riskModel", "source"],
+  "properties": {
+    "packId": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "contractVersion": { "type": "string" },
+    "confirmationFlow": {
+      "type": "object",
+      "required": ["selectionRequired", "scopeRequired", "dryRunRequiredAt", "explicitYesRequiredAt"],
+      "properties": {
+        "selectionRequired": { "type": "boolean" },
+        "scopeRequired": { "type": "boolean" },
+        "dryRunRequiredAt": { "enum": ["low", "medium", "high"] },
+        "explicitYesRequiredAt": { "enum": ["low", "medium", "high"] }
+      }
+    },
+    "riskModel": {
+      "type": "object",
+      "required": ["declaredRisk", "effectiveRiskMayEscalate", "sensitivePaths"],
+      "properties": {
+        "declaredRisk": { "enum": ["low", "medium", "high"] },
+        "effectiveRiskMayEscalate": { "type": "boolean" },
+        "sensitivePaths": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["instructionPath"],
+      "properties": {
+        "instructionPath": { "type": "string" }
+      }
+    }
+  }
+}

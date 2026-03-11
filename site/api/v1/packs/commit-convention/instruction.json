@@ -1,14 +1,23 @@
 {
+  "schemaVersion": "2026-03-11",
   "packId": "commit-convention",
-  "revision": 1,
-  "contractVersion": "instruction.v0",
-  "steps": [
-    "Read pack metadata and instruction.",
-    "Show skill summary and cautions to the user.",
-    "Ask user for apply scope (project/global).",
-    "If overwrite risk exists, request explicit approval.",
-    "Apply and report changed outputs."
-  ],
+  "revision": 2,
+  "contractVersion": "instruction.v1",
+  "confirmationFlow": {
+    "selectionRequired": true,
+    "scopeRequired": true,
+    "dryRunRequiredAt": "medium",
+    "explicitYesRequiredAt": "high"
+  },
+  "riskModel": {
+    "declaredRisk": "low",
+    "effectiveRiskMayEscalate": true,
+    "sensitivePaths": [
+      ".github/*",
+      "AGENTS.md",
+      "WORK_RULES.md"
+    ]
+  },
   "source": {
     "instructionPath": "packs/commit-convention/instruction.md"
   }

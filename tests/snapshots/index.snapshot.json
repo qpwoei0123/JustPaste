@@ -1,1 +1,23 @@
-{"schemaVersion":"2026-03-01","packs":[{"id":"commit-convention","name":"Commit Convention","summary":"컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.","revision":1}]}
+{
+  "schemaVersion": "2026-03-11",
+  "packs": [
+    {
+      "id": "commit-convention",
+      "name": "Commit Convention",
+      "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
+      "revision": 2,
+      "risk": "low",
+      "applyScopes": ["project", "global"],
+      "tags": ["git", "commit", "convention"]
+    },
+    {
+      "id": "pr-clarity-template",
+      "name": "PR Clarity Template",
+      "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
+      "revision": 2,
+      "risk": "low",
+      "applyScopes": ["project", "global"],
+      "tags": ["github", "pull-request", "template"]
+    }
+  ]
+}

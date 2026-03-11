@@ -2,23 +2,38 @@
   "id": "pr-clarity-template",
   "name": "PR Clarity Template",
   "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
-  "revision": 1,
+  "description": "PR 본문 템플릿과 리뷰 맥락을 정리하도록 안내하는 팩입니다.",
+  "version": "1.1.0",
+  "revision": 2,
   "risk": "low",
-  "applyScopes": [
-    "project",
-    "global"
+  "applyScopes": ["project", "global"],
+  "tags": ["github", "pull-request", "template"],
+  "contractVersion": "instruction.v1",
+  "targets": [
+    {
+      "scope": "project",
+      "paths": [".github/pull_request_template.md", ".github/PULL_REQUEST_TEMPLATE.md", "docs/pull-request-template.md"],
+      "strategy": "create_or_merge"
+    },
+    {
+      "scope": "global",
+      "paths": ["~/.config/justpaste/pr-template.md"],
+      "strategy": "create_or_replace"
+    }
   ],
-  "tags": [
-    "github",
-    "pull-request",
-    "template"
-  ],
+  "capabilities": {
+    "createsFiles": true,
+    "modifiesExistingFiles": true,
+    "deletesFiles": false,
+    "writesGlobalScope": true,
+    "executesCommands": false
+  },
   "agentCompatibility": {
-    "minimumContractVersion": "instruction.v0",
-    "supportedApplyModes": [
-      "dry-run",
-      "apply"
-    ],
+    "minimumContractVersion": "instruction.v1",
+    "supportedApplyModes": ["dry-run", "apply"],
     "requiresConfirmation": true
+  },
+  "observability": {
+    "eventKey": "pack.pr-clarity-template"
   }
 }

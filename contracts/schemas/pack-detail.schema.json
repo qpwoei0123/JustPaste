@@ -1,1 +1,22 @@
-{ "$schema":"https://json-schema.org/draft/2020-12/schema", "allOf":[{"$ref":"./common.schema.json"}], "type":"object", "required":["id","name","summary","revision","risk","applyScopes","tags"], "properties":{"id":{"type":"string"},"name":{"type":"string"},"summary":{"type":"string"},"revision":{"type":"integer","minimum":1},"risk":{"enum":["low","medium","high"]},"applyScopes":{"type":"array","items":{"enum":["project","global"]}},"tags":{"type":"array","items":{"type":"string"}}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [{ "$ref": "./common.schema.json" }],
+  "type": "object",
+  "required": ["id", "name", "summary", "revision", "risk", "applyScopes", "tags", "contractVersion"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "summary": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "risk": { "enum": ["low", "medium", "high"] },
+    "applyScopes": {
+      "type": "array",
+      "items": { "enum": ["project", "global"] }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "contractVersion": { "type": "string" }
+  }
+}

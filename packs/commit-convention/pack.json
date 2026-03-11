@@ -2,23 +2,38 @@
   "id": "commit-convention",
   "name": "Commit Convention",
   "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
-  "revision": 1,
+  "description": "커밋 메시지 규칙을 일관되게 적용하도록 안내하는 팩입니다.",
+  "version": "1.1.0",
+  "revision": 2,
   "risk": "low",
-  "applyScopes": [
-    "project",
-    "global"
+  "applyScopes": ["project", "global"],
+  "tags": ["git", "commit", "convention"],
+  "contractVersion": "instruction.v1",
+  "targets": [
+    {
+      "scope": "project",
+      "paths": ["AGENTS.md", "CONTRIBUTING.md", ".github/commit-template.md"],
+      "strategy": "create_or_merge"
+    },
+    {
+      "scope": "global",
+      "paths": ["~/.gitmessage", "~/.config/git/commit-template"],
+      "strategy": "create_or_replace"
+    }
   ],
-  "tags": [
-    "git",
-    "commit",
-    "convention"
-  ],
+  "capabilities": {
+    "createsFiles": true,
+    "modifiesExistingFiles": true,
+    "deletesFiles": false,
+    "writesGlobalScope": true,
+    "executesCommands": false
+  },
   "agentCompatibility": {
-    "minimumContractVersion": "instruction.v0",
-    "supportedApplyModes": [
-      "dry-run",
-      "apply"
-    ],
+    "minimumContractVersion": "instruction.v1",
+    "supportedApplyModes": ["dry-run", "apply"],
     "requiresConfirmation": true
+  },
+  "observability": {
+    "eventKey": "pack.commit-convention"
   }
 }
