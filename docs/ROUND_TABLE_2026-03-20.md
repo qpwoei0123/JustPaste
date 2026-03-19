@@ -29,14 +29,20 @@
     `print('html parse ok')`
     `PY`
   - `grep -n "첫 적용 플로우\|명시 승인 예시\|사용자가 직접 결정하는 것" site/index.html`
-- Commit SHA: `pending`
+- Commit SHA: `2aca63ea05cc08bd4c4e339794c5daa0e6ebf55f`
 
 ## Round 3
-- User: pending
-- Planner: pending
-- Developer: pending
-- Changed files: pending
-- Validation: pending
+- User: 문서 설명만으로는 부족하고, 실제 대화 예시로 어떤 문장이 오가야 하는지 보고 싶다.
+- Planner: Codex/Claude Code 예시를 실제 첫 적용 대화 시나리오로 확장한다.
+- Developer: 예시 문서를 pack 목록 제시, 선택 재확인, scope 질문, dry-run, 명시 승인, 결과 보고 흐름으로 다시 썼다.
+- Changed files:
+  - `examples/README.md`
+  - `examples/codex-flow.md`
+  - `examples/claude-code-flow.md`
+  - `docs/ROUND_TABLE_2026-03-20.md`
+- Validation:
+  - `git diff --check`
+  - `grep -n "yes, apply\|detail/instruction\|dry-run" examples/codex-flow.md examples/claude-code-flow.md`
 - Commit SHA: `pending`
 
 ## Round 4
