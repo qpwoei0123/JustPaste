@@ -13,14 +13,22 @@
 - Validation:
   - `git diff --check`
   - `grep -n "첫 적용 1분 가이드\|건너뛰면 안 되는 질문" README.md`
-- Commit SHA: `pending`
+- Commit SHA: `98aac412e9b1179b0946284a38f3268172cb7d09`
 
 ## Round 2
-- User: pending
-- Planner: pending
-- Developer: pending
-- Changed files: pending
-- Validation: pending
+- User: 랜딩 페이지를 열었을 때 apply 전에 무엇을 선택하고 언제 승인해야 하는지 한눈에 보고 싶다.
+- Planner: 사이트 첫 화면에 첫 적용 플로우, 사용자 결정 항목, 명시 승인 예시를 추가한다.
+- Developer: `site/index.html`에 apply 전 단계와 승인 예시를 보강하고 참고 문서 링크를 추가했다.
+- Changed files:
+  - `site/index.html`
+  - `docs/ROUND_TABLE_2026-03-20.md`
+- Validation:
+  - `git diff --check`
+  - `python3 - <<'PY'`
+    `from html.parser import HTMLParser; HTMLParser().feed(open('site/index.html').read())`
+    `print('html parse ok')`
+    `PY`
+  - `grep -n "첫 적용 플로우\|명시 승인 예시\|사용자가 직접 결정하는 것" site/index.html`
 - Commit SHA: `pending`
 
 ## Round 3

@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JustPaste | Agent Skill Setup Hub</title>
+    <title>JustPaste | First Apply Clarity</title>
     <style>
-      :root { --bg:#050705; --card:#0b0f0b; --line:#1d2a1d; --text:#f5fff5; --muted:#b9c7b9; --accent:#36ff72; }
+      :root { --bg:#050705; --card:#0b0f0b; --line:#1d2a1d; --text:#f5fff5; --muted:#b9c7b9; --accent:#36ff72; --warn:#ffe66d; }
       * { box-sizing: border-box; }
       body { margin:0; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace; background:var(--bg); color:var(--text); line-height:1.65; }
-      .wrap { max-width:920px; margin:0 auto; padding:32px 16px 56px; }
+      .wrap { max-width:960px; margin:0 auto; padding:32px 16px 56px; }
       .hero { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; }
       h1 { margin:0 0 8px; font-size:1.7rem; color:#ffffff; }
       h2 { margin:28px 0 10px; font-size:1.1rem; color:var(--accent); }
@@ -17,41 +17,85 @@
       .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; margin-top:10px; }
       .skill-title { color:#fff; font-weight:700; margin-bottom:6px; }
       .skill-id { color:var(--accent); font-size:13px; margin-bottom:8px; }
-      ol { margin:8px 0 0 18px; color:#e8f5e8; }
+      ol, ul { margin:8px 0 0 18px; color:#e8f5e8; }
       li { margin:4px 0; }
       code { background:#0f1a0f; color:var(--accent); border:1px solid var(--line); padding:2px 6px; border-radius:6px; }
       a { color:var(--accent); }
       .mono { font-size:14px; }
       .grid { display:grid; gap:10px; }
+      .two-col { display:grid; gap:10px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+      .callout { border-left:3px solid var(--warn); padding-left:12px; }
+      .label { color:var(--warn); font-weight:700; }
     </style>
   </head>
   <body>
     <main class="wrap">
       <section class="hero">
         <span class="tag">JustPaste</span>
-        <h1>Paste a link. Let the agent set up your skills.</h1>
-        <p>This page is human-readable, but designed primarily for agents to parse instructions and apply selected skills.</p>
-        <p><strong>Important:</strong> API links are relative, so it works without hardcoded repository path assumptions.</p>
+        <h1>링크를 붙여넣고, 선택과 승인은 사람에게 남기고, 적용은 에이전트가 한다.</h1>
+        <p>이 페이지는 사람이 읽어도 이해돼야 하고, 에이전트가 읽어도 apply 순서를 놓치지 않아야 한다.</p>
+        <p><strong>핵심 원칙:</strong> 목록만 보고 바로 apply하지 말고, <code>선택 → detail/instruction 재조회 → scope 확인 → dry-run → 명시 승인</code> 순서를 지킨다.</p>
       </section>
 
-      <h2>Quick Start</h2>
+      <h2>첫 적용 플로우</h2>
       <div class="card">
         <ol>
-          <li>Open <code>./api/v1/packs/index.json</code></li>
-          <li>Select a pack id</li>
-          <li>Fetch <code>./api/v1/packs/{packId}/instruction.json</code></li>
-          <li>Run dry-run, then ask confirmation before apply</li>
+          <li><code>./api/v1/packs/index.json</code>을 읽고 선택 가능한 pack 목록을 먼저 보여준다.</li>
+          <li>사용자가 pack을 고르면, 선택된 pack의 <code>detail.json</code>과 <code>instruction.json</code>을 다시 읽는다.</li>
+          <li>에이전트는 적용 범위와 예상 변경 파일, 위험도, 롤백 힌트를 요약한다.</li>
+          <li>사용자가 명시적으로 승인하면 그때 apply하고 결과를 보고한다.</li>
         </ol>
+      </div>
+
+      <h2>사용자가 직접 결정하는 것</h2>
+      <div class="two-col">
+        <div class="card">
+          <div class="label">1. 무엇을 적용할지</div>
+          <p>pack 이름, id, summary, risk, 지원 scope를 먼저 본 뒤 선택한다.</p>
+        </div>
+        <div class="card">
+          <div class="label">2. 어디에 적용할지</div>
+          <p><code>project</code>인지 <code>global</code>인지 먼저 정한다. 지원하지 않는 scope는 강제로 밀어넣지 않는다.</p>
+        </div>
+        <div class="card">
+          <div class="label">3. 덮어쓸지 병합할지</div>
+          <p>기존 파일이 있다면 overwrite/merge 여부를 재확인한다.</p>
+        </div>
+        <div class="card">
+          <div class="label">4. 지금 적용할지</div>
+          <p>dry-run 요약과 변경 파일 목록을 본 뒤 apply를 승인한다.</p>
+        </div>
+      </div>
+
+      <h2>명시 승인 예시</h2>
+      <div class="card callout">
+        <p>애매한 답변은 승인으로 간주하지 않는다. 특히 첫 적용에서는 더 보수적으로 본다.</p>
+        <ul>
+          <li>좋은 예: <code>yes, apply</code></li>
+          <li>좋은 예: <code>yes, overwrite and apply</code></li>
+          <li>좋은 예: <code>global scope로 적용해</code></li>
+          <li>부족한 예: <code>ㅇㅇ</code>, <code>그거</code>, <code>ㄱㄱ</code>, <code>진행</code></li>
+        </ul>
       </div>
 
       <h2>Agent API Endpoints</h2>
       <div class="card mono grid">
-        <div><a href="./api/v1/packs/index.json">./api/v1/packs/index.json</a> (skill list)</div>
+        <div><a href="./api/v1/packs/index.json">./api/v1/packs/index.json</a> (pack list)</div>
+        <div><a href="./api/v1/packs/commit-convention/detail.json">./api/v1/packs/commit-convention/detail.json</a></div>
         <div><a href="./api/v1/packs/commit-convention/instruction.json">./api/v1/packs/commit-convention/instruction.json</a></div>
+        <div><a href="./api/v1/packs/pr-clarity-template/detail.json">./api/v1/packs/pr-clarity-template/detail.json</a></div>
         <div><a href="./api/v1/packs/pr-clarity-template/instruction.json">./api/v1/packs/pr-clarity-template/instruction.json</a></div>
       </div>
 
-      <h2>Skill Content (Published on this page)</h2>
+      <h2>Reference Docs</h2>
+      <div class="card mono grid">
+        <div><a href="../examples/codex-flow.md">examples/codex-flow.md</a></div>
+        <div><a href="../examples/claude-code-flow.md">examples/claude-code-flow.md</a></div>
+        <div><a href="../contracts/SELECTION_CONFIRMATION_FLOW_V1.md">contracts/SELECTION_CONFIRMATION_FLOW_V1.md</a></div>
+        <div><a href="../contracts/PRE_APPLY_CHECKLIST_V1.md">contracts/PRE_APPLY_CHECKLIST_V1.md</a></div>
+      </div>
+
+      <h2>Published Packs</h2>
 
       <article class="card">
         <div class="skill-title">Commit Convention Skill</div>
