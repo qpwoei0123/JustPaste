@@ -2,6 +2,7 @@
 
 - Overall theme: 첫 적용 전에 사용자가 무엇을 고르고 언제 승인하는지 헷갈리지 않게 만드는 온보딩 선명화
 - Branch: `feat/first-apply-clarity`
+- Note: 각 라운드 SHA는 다음 커밋에서 확정 기록했고, Round 6 SHA는 마지막 동기화 커밋에서 반영했다.
 
 ## Round 1
 - User: 링크를 받았는데 첫 화면에서 무엇을 보고 어떤 질문에 답해야 하는지 바로 이해하고 싶다.
@@ -85,4 +86,4 @@
 - Validation:
   - `git diff --check`
   - `grep -n "First Apply Promise\|First Apply Clarity Requirements\|명시 승인" docs/ONE_PAGER.md docs/PRD_vNext.md docs/FIRST_APPLY_PLAYBOOK.md`
-- Commit SHA: `pending`
+- Commit SHA: `a50827c484a1b4bf15cb70f6547039417acc3985`
