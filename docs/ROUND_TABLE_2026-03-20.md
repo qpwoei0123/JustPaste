@@ -71,12 +71,18 @@
 - Validation:
   - `git diff --check`
   - `grep -n "First Apply Usage\|첫 적용" docs/api-skill-list-endpoint.md docs/api-skill-detail-endpoint.md docs/api-pack-instruction-endpoint.md`
-- Commit SHA: `pending`
+- Commit SHA: `4aaa2aade838e31541484b4cc7c311062be1542e`
 
 ## Round 6
-- User: pending
-- Planner: pending
-- Developer: pending
-- Changed files: pending
-- Validation: pending
+- User: 팀이 나중에 문서를 다시 볼 때도 “좋은 첫 적용” 기준이 한 군데에 정리돼 있으면 좋겠다.
+- Planner: 제품 문서에 첫 적용 플레이북을 추가하고, one-pager/PRD에 이 기준을 제품 요구사항으로 묶는다.
+- Developer: `docs/FIRST_APPLY_PLAYBOOK.md`를 만들고 제품 문서에 첫 적용 약속, 요구사항, 추가 지표를 반영했다.
+- Changed files:
+  - `docs/FIRST_APPLY_PLAYBOOK.md`
+  - `docs/ONE_PAGER.md`
+  - `docs/PRD_vNext.md`
+  - `docs/ROUND_TABLE_2026-03-20.md`
+- Validation:
+  - `git diff --check`
+  - `grep -n "First Apply Promise\|First Apply Clarity Requirements\|명시 승인" docs/ONE_PAGER.md docs/PRD_vNext.md docs/FIRST_APPLY_PLAYBOOK.md`
 - Commit SHA: `pending`
