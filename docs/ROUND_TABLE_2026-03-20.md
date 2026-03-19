@@ -57,14 +57,20 @@
 - Validation:
   - `git diff --check`
   - `grep -n "첫 적용\|이번 라운드 비포함\|global" contracts/SELECTION_CONFIRMATION_FLOW_V1.md contracts/PRE_APPLY_CHECKLIST_V1.md contracts/README.md`
-- Commit SHA: `pending`
+- Commit SHA: `fba978f7bc74c986db41112f499fcf81db6ebe13`
 
 ## Round 5
-- User: pending
-- Planner: pending
-- Developer: pending
-- Changed files: pending
-- Validation: pending
+- User: API 문서를 읽는 에이전트가 endpoint 순서는 알지만, 첫 적용 질문을 어떤 순서로 만들지 헷갈리지 않았으면 좋겠다.
+- Planner: list/detail/instruction endpoint 문서에 첫 적용 사용법을 따로 적어 질문 생성 순서를 고정한다.
+- Developer: 세 endpoint 문서에 첫 적용 usage 섹션을 추가해 선택지 제시, 선택 확인, apply 직전 요약 역할을 분리했다.
+- Changed files:
+  - `docs/api-skill-list-endpoint.md`
+  - `docs/api-skill-detail-endpoint.md`
+  - `docs/api-pack-instruction-endpoint.md`
+  - `docs/ROUND_TABLE_2026-03-20.md`
+- Validation:
+  - `git diff --check`
+  - `grep -n "First Apply Usage\|첫 적용" docs/api-skill-list-endpoint.md docs/api-skill-detail-endpoint.md docs/api-pack-instruction-endpoint.md`
 - Commit SHA: `pending`
 
 ## Round 6
