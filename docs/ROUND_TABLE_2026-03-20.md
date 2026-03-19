@@ -43,14 +43,20 @@
 - Validation:
   - `git diff --check`
   - `grep -n "yes, apply\|detail/instruction\|dry-run" examples/codex-flow.md examples/claude-code-flow.md`
-- Commit SHA: `pending`
+- Commit SHA: `20901ffc254324cfd35a31000f93057126b1748d`
 
 ## Round 4
-- User: pending
-- Planner: pending
-- Developer: pending
-- Changed files: pending
-- Validation: pending
+- User: 첫 적용에서 에이전트가 여러 pack을 한꺼번에 밀어넣거나 애매한 답을 승인으로 오해하지 않았으면 좋겠다.
+- Planner: 계약 문서에 첫 적용 기본값과 apply 직전 재확인 항목을 더 명확하게 적는다.
+- Developer: selection/confirmation flow와 pre-apply checklist에 단일 pack 우선, global 비강제, 비포함 범위 고지, 마지막 요약 규칙을 추가했다.
+- Changed files:
+  - `contracts/SELECTION_CONFIRMATION_FLOW_V1.md`
+  - `contracts/PRE_APPLY_CHECKLIST_V1.md`
+  - `contracts/README.md`
+  - `docs/ROUND_TABLE_2026-03-20.md`
+- Validation:
+  - `git diff --check`
+  - `grep -n "첫 적용\|이번 라운드 비포함\|global" contracts/SELECTION_CONFIRMATION_FLOW_V1.md contracts/PRE_APPLY_CHECKLIST_V1.md contracts/README.md`
 - Commit SHA: `pending`
 
 ## Round 5
