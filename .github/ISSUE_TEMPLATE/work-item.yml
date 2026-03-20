@@ -1,5 +1,5 @@
 name: Work Item
-description: type/priority/area/risk를 강제하는 이슈 템플릿
+description: Issue template that requires type / priority / area / risk
 body:
   - type: dropdown
     id: type

@@ -1,11 +1,11 @@
 # PRE_APPLY_CHECKLIST_V1
 
-1. 선택된 pack 이름/ID를 다시 보여준다.
-2. 적용 범위(`project`/`global`)를 다시 확인한다.
-3. 변경 요약을 제시한다.
-4. 영향 파일 목록을 제시한다.
-5. 이번 라운드에서 변경하지 않는 범위를 함께 제시한다.
-6. 롤백 방법을 제시한다.
-7. 위험도 및 확인 강도를 제시한다.
-8. 사용자 명시 확인을 획득한다.
-9. dry-run 이후 파일 상태가 바뀌지 않았는지 마지막으로 확인한다.
+1. Show the selected pack name and ID again.
+2. Confirm the apply scope again (`project` / `global`).
+3. Present a change summary.
+4. Present the list of affected files.
+5. Also show what will **not** be changed in this round.
+6. Present the rollback method.
+7. Present the risk level and confirmation strength.
+8. Obtain explicit user confirmation.
+9. Confirm one last time that file state has not changed since the dry-run.

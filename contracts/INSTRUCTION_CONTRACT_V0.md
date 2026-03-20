@@ -1,67 +1,67 @@
 # INSTRUCTION CONTRACT v0
 
-JustPaste 링크를 받은 에이전트가 따라야 할 최소 절차 정의.
+Minimum procedure that an agent must follow when it receives a JustPaste link.
 
-## 0. 목적
-- 사용자가 링크만 붙여넣어도, 에이전트가 스킬 선택/적용을 끝까지 안내한다.
-- 적용 전 반드시 사용자 확인을 받는다.
+## 0. Goal
+- Even when the user only pastes a link, the agent should guide the full skill selection and apply flow.
+- The agent must obtain user confirmation before apply.
 
-## 1. 입력
-- 사용자 제공 JustPaste 링크 1개
-- (선택) 사용자 추가 요청(예: 특정 스킬 우선)
+## 1. Inputs
+- One JustPaste link provided by the user
+- (Optional) additional user request, such as prioritizing a specific skill
 
-## 2. 필수 실행 순서
-1) 링크 지침 읽기
-- 에이전트는 링크의 지침/팩 메타를 먼저 읽는다.
+## 2. Required Execution Order
+1) Read link instructions
+- The agent reads the link instructions and pack metadata first.
 
-2) 스킬 목록 제시
-- 사용자에게 선택 가능한 스킬 목록을 보여준다.
-- 각 스킬의 한 줄 설명과 주의점(있다면)을 함께 안내한다.
+2) Present the skill list
+- Show the user the list of selectable skills.
+- Include a one-line description and any notable warning for each skill.
 
-3) 사용자 선택 확인
-- 사용자가 선택한 스킬을 명시적으로 재확인한다.
-- 선택이 모호하면 재질문한다.
+3) Confirm the user selection
+- Explicitly restate the skill selected by the user.
+- If the selection is ambiguous, ask again.
 
-4) 선택 스킬 상세 재조회
-- 에이전트는 선택된 스킬 상세를 다시 조회한다.
-- 캐시된 오래된 정보만으로 적용하지 않는다.
+4) Refetch selected skill details
+- The agent refetches the selected skill details.
+- Do not apply based only on stale cached information.
 
-5) 적용 범위 확인(필수)
-- 아래를 적용 전에 반드시 질문한다.
-  - 프로젝트 단위 적용인지
-  - 로컬(글로벌) 단위 적용인지
+5) Confirm apply scope (required)
+- Before apply, the agent must ask whether the change is for:
+  - project scope, or
+  - local/global scope
 
-6) 덮어쓰기/변경 확인(필수)
-- 기존 설정 파일 변경/덮어쓰기 가능성이 있으면 사용자 승인 후 진행한다.
+6) Confirm overwrite / change behavior (required)
+- If existing config files may be changed or overwritten, proceed only after user approval.
 
-7) 적용 수행
-- 에이전트가 현재 환경에 맞게 실시간으로 세팅 절차를 수행한다.
-- 하드코딩 어댑터를 전제하지 않는다.
+7) Execute apply
+- The agent performs the setup in real time for the current environment.
+- Do not assume a hard-coded adapter.
 
-8) 결과 보고
-- 무엇을 어디에 적용했는지 요약한다.
-- 실패 시 실패 지점/원인/재시도 방법을 짧게 안내한다.
+8) Report the result
+- Summarize what was applied and where.
+- On failure, briefly explain the failure point, likely cause, and retry path.
 
-## 3. 출력 포맷(권장)
-- 요약 1줄
-- 수행 단계 3~7줄
-- 사용자 추가 액션 필요 여부 1줄
+## 3. Output Format (recommended)
+- 1-line summary
+- 3–7 lines of execution details
+- 1 line about whether further user action is needed
 
-예시:
-- 요약: "선택한 2개 스킬을 프로젝트 범위로 적용했습니다."
-- 변경: "./.claude/..., ./AGENTS.md ..."
-- 다음: "원하면 로컬 범위에도 동일 적용할 수 있습니다."
+Example:
+- Summary: "Applied the two selected skills at project scope."
+- Changes: `./.claude/...`, `./AGENTS.md` ...
+- Next: "If you want, I can also apply the same setup at local scope."
 
-## 4. 실패 처리 규칙
-- 링크/스킬 조회 실패: 재시도 1회 후 사용자에게 상태 공유
-- 권한/파일 접근 실패: 필요한 권한/경로를 명확히 안내
-- 모호한 지시: 추측 적용 금지, 사용자 확인 우선
+## 4. Failure Handling Rules
+- Link / skill fetch failure: retry once, then share the status with the user
+- Permission / file access failure: clearly explain the required permission or path
+- Ambiguous instruction: do not guess; ask the user first
 
-## 5. 금지 사항
-- 사용자 확인 없이 글로벌 경로 변경 금지
-- 사용자 확인 없이 덮어쓰기 금지
-- 선택되지 않은 스킬 임의 적용 금지
+## 5. Prohibitions
+- No global-path changes without user confirmation
+- No overwrites without user confirmation
+- Do not apply unselected skills on your own
 
-## 6. 비범위 (v0)
-- 에이전트별 설치 어댑터 구현 강제
-- 복잡한 정책 엔진/권한 시스템
+## 6. Out of Scope (v0)
+- Mandatory implementation of agent-specific install adapters
+- Complex policy engines or permission systems

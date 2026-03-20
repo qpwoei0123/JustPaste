@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,49 +32,49 @@
     <main class="wrap">
       <section class="hero">
         <span class="tag">JustPaste</span>
-        <h1>링크를 붙여넣고, 선택과 승인은 사람에게 남기고, 적용은 에이전트가 한다.</h1>
-        <p>이 페이지는 사람이 읽어도 이해돼야 하고, 에이전트가 읽어도 apply 순서를 놓치지 않아야 한다.</p>
-        <p><strong>핵심 원칙:</strong> 목록만 보고 바로 apply하지 말고, <code>선택 → detail/instruction 재조회 → scope 확인 → dry-run → 명시 승인</code> 순서를 지킨다.</p>
+        <h1>Paste the link, leave selection and approval to the human, and let the agent apply the setup.</h1>
+        <p>This page should be understandable to humans and should keep agents from skipping the apply order.</p>
+        <p><strong>Core rule:</strong> do not apply from the pack list alone. Follow <code>selection → refetch detail/instruction → confirm scope → dry-run → explicit approval</code>.</p>
       </section>
 
-      <h2>첫 적용 플로우</h2>
+      <h2>First Apply Flow</h2>
       <div class="card">
         <ol>
-          <li><code>./api/v1/packs/index.json</code>을 읽고 선택 가능한 pack 목록을 먼저 보여준다.</li>
-          <li>사용자가 pack을 고르면, 선택된 pack의 <code>detail.json</code>과 <code>instruction.json</code>을 다시 읽는다.</li>
-          <li>에이전트는 적용 범위와 예상 변경 파일, 위험도, 롤백 힌트를 요약한다.</li>
-          <li>사용자가 명시적으로 승인하면 그때 apply하고 결과를 보고한다.</li>
+          <li>Read <code>./api/v1/packs/index.json</code> and show the list of available packs first.</li>
+          <li>After the user chooses a pack, read that pack's <code>detail.json</code> and <code>instruction.json</code> again.</li>
+          <li>The agent summarizes the apply scope, expected changed files, risk, and rollback hints.</li>
+          <li>Only after explicit approval does the agent apply and report the result.</li>
         </ol>
       </div>
 
-      <h2>사용자가 직접 결정하는 것</h2>
+      <h2>User Decisions</h2>
       <div class="two-col">
         <div class="card">
-          <div class="label">1. 무엇을 적용할지</div>
-          <p>pack 이름, id, summary, risk, 지원 scope를 먼저 본 뒤 선택한다.</p>
+          <div class="label">1. What to apply</div>
+          <p>Choose after reviewing the pack name, id, summary, risk, and supported scopes.</p>
         </div>
         <div class="card">
-          <div class="label">2. 어디에 적용할지</div>
-          <p><code>project</code>인지 <code>global</code>인지 먼저 정한다. 지원하지 않는 scope는 강제로 밀어넣지 않는다.</p>
+          <div class="label">2. Where to apply it</div>
+          <p>Decide whether the scope is <code>project</code> or <code>global</code>. Do not force an unsupported scope.</p>
         </div>
         <div class="card">
-          <div class="label">3. 덮어쓸지 병합할지</div>
-          <p>기존 파일이 있다면 overwrite/merge 여부를 재확인한다.</p>
+          <div class="label">3. Merge or replace</div>
+          <p>If a matching file already exists, confirm whether to overwrite or merge it.</p>
         </div>
         <div class="card">
-          <div class="label">4. 지금 적용할지</div>
-          <p>dry-run 요약과 변경 파일 목록을 본 뒤 apply를 승인한다.</p>
+          <div class="label">4. Whether to apply now</div>
+          <p>Review the dry-run summary and changed-file list before approving apply.</p>
         </div>
       </div>
 
-      <h2>명시 승인 예시</h2>
+      <h2>Explicit Approval Examples</h2>
       <div class="card callout">
-        <p>애매한 답변은 승인으로 간주하지 않는다. 특히 첫 적용에서는 더 보수적으로 본다.</p>
+        <p>Do not treat vague answers as approval. Be stricter on the first apply.</p>
         <ul>
-          <li>좋은 예: <code>yes, apply</code></li>
-          <li>좋은 예: <code>yes, overwrite and apply</code></li>
-          <li>좋은 예: <code>global scope로 적용해</code></li>
-          <li>부족한 예: <code>ㅇㅇ</code>, <code>그거</code>, <code>ㄱㄱ</code>, <code>진행</code></li>
+          <li>Good: <code>yes, apply</code></li>
+          <li>Good: <code>yes, overwrite and apply</code></li>
+          <li>Good: <code>apply it at global scope</code></li>
+          <li>Not enough: <code>sure</code>, <code>that one</code>, <code>go ahead</code>, <code>do it</code></li>
         </ul>
       </div>
 
@@ -102,10 +102,10 @@
         <div class="skill-id">skill id: <code>commit-convention</code></div>
         <p>Purpose: Standardize commit messages with a conventional format for clearer history and collaboration.</p>
         <ol>
-          <li>Check existing commit style in the current repository.</li>
-          <li>Present base format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code>.</li>
-          <li>Ask user for apply scope (project/global).</li>
-          <li>If rule files exist, ask overwrite confirmation.</li>
+          <li>Check the existing commit style in the current repository.</li>
+          <li>Present the base format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code>.</li>
+          <li>Ask the user for apply scope (<code>project</code> / <code>global</code>).</li>
+          <li>If rule files exist, ask for overwrite confirmation.</li>
           <li>Apply and provide two sample commit messages.</li>
         </ol>
       </article>
@@ -117,16 +117,16 @@
         <ol>
           <li>Check whether a PR template already exists.</li>
           <li>Present sections: Summary, Changes, Scope, Validation, Related Issue.</li>
-          <li>Ask user for apply scope (project/global).</li>
-          <li>Ask merge/replace choice if a template already exists.</li>
+          <li>Ask the user for apply scope (<code>project</code> / <code>global</code>).</li>
+          <li>Ask for merge/replace choice if a template already exists.</li>
           <li>Apply and provide one sample PR body.</li>
         </ol>
       </article>
 
       <h2>Content Boundary</h2>
       <div class="card">
-        <p><strong>Human-readable:</strong> 설명/가이드 텍스트</p>
-        <p><strong>Agent-readable:</strong> JSON endpoint 및 계약 문서</p>
+        <p><strong>Human-readable:</strong> explanatory and guide text</p>
+        <p><strong>Agent-readable:</strong> JSON endpoints and contract documents</p>
       </div>
 
       <h2>Repository</h2>

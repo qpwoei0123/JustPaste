@@ -1,41 +1,43 @@
 # JustPaste
 
-Paste link. Agent sets skills.
+Paste a link. The agent sets the skills.
 
-링크 하나만 붙여넣으면, 에이전트가 pack 목록을 읽고 **선택 → scope 확인 → dry-run → 명시 승인 → apply** 순서로 스킬/규칙 세팅을 진행하는 AI-우선 허브다.
+> Korean README: [README.kr.md](./README.kr.md)
 
-## Working rule
-프로젝트 작업 일관성 규칙은 루트의 [WORK_RULES.md](./WORK_RULES.md)를 따른다.
+JustPaste is an AI-first hub where a user can paste a single link and the agent follows a predictable flow: **selection → scope confirmation → dry-run → explicit approval → apply**.
 
-핵심:
-- 작은 단위 이슈/커밋
-- 라벨 기반 우선순위/상태 관리
-- MVP는 에이전트 실시간 세팅 철학 유지
+## Working Rules
+Project work follows the root [WORK_RULES.md](./WORK_RULES.md).
 
-## 첫 적용 1분 가이드
-1. 사용자가 JustPaste 링크를 에이전트에게 붙여넣는다.
-2. 에이전트는 `./api/v1/packs/index.json`을 읽고 pack 이름, id, 요약, risk, 지원 scope를 먼저 보여준다.
-3. 사용자는 **적용할 pack 1개 이상**을 고른다.
-4. 에이전트는 선택된 pack의 `detail.json`과 `instruction.json`을 다시 조회한다.
-5. 에이전트는 scope(`project`/`global`), 예상 변경 파일, 위험도, 롤백 힌트를 먼저 설명한다.
-6. 사용자가 명시적으로 승인하면 에이전트가 apply하고 변경 결과를 보고한다.
+Core rules:
+- Small issues and small commits
+- Label-based priority and status management
+- Keep the MVP philosophy: agents adapt in real time to the current environment
 
-## 첫 적용에서 에이전트가 건너뛰면 안 되는 질문
-- 어떤 pack을 적용할까요?
-- 범위는 `project`와 `global` 중 어디인가요?
-- 기존 파일이 이미 있으면 merge/replace 중 어떤 방식으로 처리할까요?
-- dry-run 요약을 확인한 뒤 진행할까요?
+## 1-Minute First Apply Guide
+1. The user pastes a JustPaste link to the agent.
+2. The agent reads `./api/v1/packs/index.json` and first shows each pack's name, id, summary, risk, and supported scopes.
+3. The user chooses one or more packs to apply.
+4. The agent refetches the selected pack's `detail.json` and `instruction.json`.
+5. The agent summarizes the scope (`project`/`global`), expected changed files, risk, and rollback hints.
+6. Only after explicit approval does the agent apply the change and report the result.
+
+## Questions the Agent Must Not Skip on the First Apply
+- Which pack should I apply?
+- Should this be applied at `project` or `global` scope?
+- If matching files already exist, should I merge or replace them?
+- After reviewing the dry-run summary, should I apply now?
 
 ## Structure
-- `docs/` : 제품/기획 문서
-- `contracts/` : 에이전트 지침 계약 문서
-- `packs/` : 스킬 팩 데이터
-- `examples/` : 사용자 플로우 예시
-- `site/` : GitHub Pages 정적 사이트
+- `docs/`: product and planning documents
+- `contracts/`: agent instruction and confirmation contracts
+- `packs/`: skill-pack metadata and content
+- `examples/`: example user flows
+- `site/`: GitHub Pages static site
 
 ## GitHub Pages
-- 배포 방식: GitHub Actions (`.github/workflows/pages.yml`)
-- 기본 URL: `https://qpwoei0123.github.io/JustPaste/`
+- Deployment: GitHub Actions (`.github/workflows/pages.yml`)
+- Default URL: `https://qpwoei0123.github.io/JustPaste/`
 
 ## API (MVP, static)
 - Pack list endpoint:

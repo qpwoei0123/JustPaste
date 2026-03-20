@@ -11,8 +11,8 @@
     {
       "id": "commit-convention",
       "name": "Commit Convention",
-      "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
-      "revision": 2,
+      "summary": "Standardize commit messages with conventional commit rules.",
+      "revision": 3,
       "risk": "low",
       "applyScopes": ["project", "global"],
       "tags": ["git", "commit", "convention"]
@@ -22,17 +22,17 @@
 ```
 
 ## First Apply Usage
-- 이 응답은 **선택지 제시용**이다. 첫 적용에서는 여기서 바로 apply 계획을 확정하지 않는다.
-- 사용자에게는 최소 아래 항목을 먼저 보여준다.
+- This response is for **presenting choices**. On the first apply, do not finalize the apply plan from this response alone.
+- At minimum, show the user these fields first:
   - `name`
   - `id`
   - `summary`
   - `risk`
   - `applyScopes`
-- 기본 질문은 `어떤 pack을 적용할까요?` 1개만 던진다.
-- 첫 적용에서는 여러 pack 동시 적용보다 1개 먼저 적용을 기본값으로 제안한다.
+- The default question should be only: `Which pack should I apply?`
+- On the first apply, suggest applying one pack before suggesting a multi-pack apply.
 
 ## Notes
-- 목록 응답만으로 apply하지 않는다.
-- 사용자가 선택한 pack은 detail / instruction endpoint를 재조회해야 한다.
-- GitHub Pages MVP에서는 정적 JSON으로 제공한다.
+- Do not apply from the list response alone.
+- For the pack the user selects, refetch the detail and instruction endpoints.
+- In the GitHub Pages MVP, this is served as static JSON.

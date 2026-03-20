@@ -1,30 +1,30 @@
-## 요약
-<!-- 무엇을 왜 바꿨는지 3줄 이내 -->
+## Summary
+<!-- Explain what changed and why in 3 lines or fewer -->
 
 - 
 
-## 변경 내용
-<!-- 핵심 변경만 불릿으로 -->
+## Changes
+<!-- Bullet only the important changes -->
 
 - 
 
-## 범위
-- 포함(In scope):
+## Scope
+- Included (In scope):
   - 
-- 제외(Out of scope):
+- Excluded (Out of scope):
   - 
 
-## 확인 체크리스트
-- [ ] 이 PR은 하나의 목적만 다룬다 (Issue 1개 = PR 1개)
-- [ ] 관련 이슈를 연결했다 (`Closes #번호`)
-- [ ] `type:*` / `priority:*` 라벨이 적절하다
-- [ ] 문서 업데이트가 필요하면 반영했다
-- [ ] 불필요한 변경/대규모 리팩터링이 섞이지 않았다
+## Checklist
+- [ ] This PR covers one purpose only (1 issue = 1 PR = 1 purpose)
+- [ ] Linked the related issue (`Closes #number`)
+- [ ] `type:*` / `priority:*` labels are appropriate
+- [ ] Updated documentation if needed
+- [ ] Did not mix unrelated changes or large refactors
 
-## 테스트/검증
-<!-- 실행한 검증을 간단히 -->
+## Testing / Validation
+<!-- Briefly list the validation you ran -->
 
 - 
 
-## 관련 이슈
+## Related Issue
 Closes #

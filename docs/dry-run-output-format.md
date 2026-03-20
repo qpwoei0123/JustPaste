@@ -19,7 +19,7 @@ previewFingerprint: <fingerprint for stale preview detection>
 ```
 
 ## Rules
-- dry-run은 실제 apply 후보 파일과 같은 기준으로 계산한다.
-- scope, selection, overwrite option이 바뀌면 dry-run을 재생성한다.
-- apply 직전 파일 상태가 `previewFingerprint`와 다르면 apply를 중단한다.
-- medium/high risk에서는 dry-run 결과를 승인 전에 보여준다.
+- Compute the dry-run against the same candidate files that would be used for the real apply.
+- Regenerate the dry-run whenever scope, selection, or overwrite options change.
+- If file state no longer matches `previewFingerprint` right before apply, stop apply.
+- For medium/high risk, show the dry-run result before asking for approval.

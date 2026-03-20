@@ -1,61 +1,61 @@
 # JustPaste — Product One Pager (v1)
 
-## 한 줄 정의
-링크를 붙여넣으면, 에이전트가 지침을 읽고 사용자에게 스킬 선택/적용을 안내하는 AI-우선 스킬 세팅 허브.
+## One-line Definition
+Paste a link and the agent reads the instructions, then guides skill selection and apply as an AI-first skill setup hub.
 
-## 문제
-- 사용자마다 에이전트 세팅 방식이 달라 초기 설정이 번거롭다.
-- 문서 링크만 주면 끝나야 하는데, 실제로는 복잡한 설명과 반복 작업이 발생한다.
-- 설치/세팅 포맷은 자주 변해서 하드코딩된 방식은 금방 깨진다.
+## Problem
+- Agent setup differs from user to user, so initial configuration is repetitive and slow.
+- A document link should be enough, but in practice it still requires long explanations and repeated work.
+- Install and setup formats change often, so hard-coded approaches break quickly.
 
-## 타겟 사용자
-- Claude Code / Codex 같은 코딩 에이전트 사용자
-- 팀 내에서 동일한 스킬/룰을 빠르게 공유하고 싶은 사용자
+## Target Users
+- Users of coding agents such as Claude Code or Codex
+- Users who want to share the same skills or rules quickly across a team
 
 ## First Apply Promise
-처음 링크를 받은 사용자도 아래 순서를 예측할 수 있어야 한다.
-1. pack 목록을 본다.
-2. 적용할 pack을 고른다.
-3. 에이전트가 detail/instruction을 다시 읽는다.
-4. scope, 예상 변경, 위험, rollback hint를 본다.
-5. 명시 승인 후 apply 결과를 받는다.
+Even a first-time user who only receives the link should be able to predict this order:
+1. View the pack list.
+2. Choose the pack to apply.
+3. The agent rereads the detail and instruction.
+4. View scope, expected changes, risk, and rollback hints.
+5. Receive apply results after explicit approval.
 
-## 핵심 플로우 (MVP)
-1. 사용자가 JustPaste 링크를 에이전트에게 붙여넣는다.
-2. 에이전트가 링크 지침을 읽고, 스킬 목록과 설명을 사용자에게 보여준다.
-3. 사용자가 적용할 스킬을 선택한다.
-4. 에이전트가 선택된 스킬 상세를 재조회한다.
-5. 에이전트가 현재 환경에 맞게 세팅 절차를 수행한다.
-6. 적용 전 범위(프로젝트/로컬)와 덮어쓰기 여부를 사용자에게 확인한다.
+## Core Flow (MVP)
+1. The user pastes a JustPaste link to the agent.
+2. The agent reads the link instructions and shows the user the skill list and descriptions.
+3. The user selects the skill to apply.
+4. The agent refetches the selected skill detail.
+5. The agent performs setup for the current environment.
+6. Before apply, the agent confirms scope (project/local) and overwrite behavior.
 
-## MVP 포함 범위 (In Scope)
-- 지침 전달: 에이전트가 따라야 할 절차 제공
-- 스킬 목록/상세 제공: 선택 및 적용에 필요한 데이터 제공
-- 안전 확인 절차: 적용 전 필수 확인 항목 정의
-- 이슈/라벨 기반 작업 운영 규칙 확립
-- 첫 적용 플레이북 유지: 사용자 질문 순서와 승인 문장을 일관되게 유지
+## MVP In Scope
+- Instruction delivery: provide procedures the agent must follow
+- Skill list/detail delivery: provide data required for selection and apply
+- Safety confirmation flow: define required checks before apply
+- Issue/label-based operating rules
+- First apply playbook: keep question order and approval phrasing consistent
 
-## MVP 제외 범위 (Out of Scope)
-- 에이전트별 하드코딩 설치 어댑터 구현
-- 복잡한 웹 UI/계정 시스템
-- 장기 분석 대시보드
+## MVP Out of Scope
+- Hard-coded install adapters for each agent
+- Complex web UI or account systems
+- Long-term analytics dashboards
 
-## 핵심 원칙
-- 포맷 변화 대응은 서버 하드코딩보다 에이전트의 실시간 해석/적용에 맡긴다.
-- 작은 단위 이슈/커밋으로 빠르게 검증한다.
-- 적용 전 사용자 확인을 반드시 거친다.
-- 첫 적용에서는 여러 선택지를 한 번에 몰아주기보다 다음 질문이 분명한 흐름을 우선한다.
+## Core Principles
+- Let the agent handle format changes through real-time interpretation and apply, rather than server-side hard-coding.
+- Validate quickly with small issues and small commits.
+- Always confirm with the user before apply.
+- On the first apply, prioritize a flow where the next question is obvious over dumping many options at once.
 
-## 성공 지표 (초기)
-- 링크 1개로 세팅 완료까지 도달한 비율
-- 첫 세팅 완료 시간
-- 적용 실패율(재시도 포함)
-- 첫 dry-run 전까지 필요한 추가 설명 턴 수
+## Early Success Metrics
+- Rate of reaching completed setup from a single link
+- Time to first completed setup
+- Apply failure rate (including retries)
+- Number of extra explanation turns needed before the first dry-run
 
-## 리스크와 대응
-- 리스크: 외부 지침 신뢰성 문제
-  - 대응: 적용 전 명시적 확인, 범위/덮어쓰기 질문 강제
-- 리스크: 에이전트별 동작 편차
-  - 대응: 계약 문서(contracts)와 예시 시나리오 지속 보강
-- 리스크: 첫 적용 이탈률 증가
-  - 대응: `docs/FIRST_APPLY_PLAYBOOK.md`를 기준으로 질문 순서와 요약 형식을 고정
+## Risks and Mitigations
+- Risk: trust issues with external instructions
+  - Mitigation: require explicit confirmation and force scope/overwrite questions before apply
+- Risk: behavioral drift across agents
+  - Mitigation: continuously strengthen contract documents (`contracts/`) and scenario examples
+- Risk: higher drop-off on the first apply
+  - Mitigation: lock question order and summary format around `docs/FIRST_APPLY_PLAYBOOK.md`

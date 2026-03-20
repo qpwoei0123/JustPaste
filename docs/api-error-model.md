@@ -1,6 +1,6 @@
 # API Error Model (v1)
 
-모든 에러 응답은 아래 구조를 따른다.
+All error responses follow the structure below.
 
 ```json
 {
