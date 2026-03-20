@@ -1,10 +1,10 @@
 {
   "id": "commit-convention",
   "name": "Commit Convention",
-  "summary": "컨벤셔널 커밋 규칙으로 메시지 일관성을 맞춥니다.",
-  "description": "커밋 메시지 규칙을 일관되게 적용하도록 안내하는 팩입니다.",
+  "summary": "Standardize commit messages with conventional commit rules.",
+  "description": "A pack that guides consistent commit message rules across the repo or global defaults.",
   "version": "1.1.0",
-  "revision": 2,
+  "revision": 3,
   "risk": "low",
   "applyScopes": ["project", "global"],
   "tags": ["git", "commit", "convention"],

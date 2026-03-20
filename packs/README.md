@@ -1,12 +1,12 @@
 # packs
 
-스킬 팩 메타데이터 및 콘텐츠 소스를 둔다.
+Source of truth for skill-pack metadata and content.
 
-## demo packs
+## Demo packs
 - `commit-convention`
 - `pr-clarity-template`
 
 ## Agent compatibility fields
-- minimumContractVersion
-- supportedApplyModes
-- requiresConfirmation
+- `minimumContractVersion`
+- `supportedApplyModes`
+- `requiresConfirmation`

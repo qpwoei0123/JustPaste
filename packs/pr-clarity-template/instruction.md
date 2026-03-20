@@ -1,22 +1,22 @@
 # PR Clarity Template
 
-## 목적
-PR 본문을 간결하고 명확하게 유지해 리뷰 속도를 높인다.
+## Goal
+Keep PR bodies concise and clear so review moves faster.
 
-## 에이전트 적용 지침
-1. 저장소에 PR 템플릿 파일 존재 여부를 확인한다.
-2. 사용자에게 템플릿 구성안을 제시한다:
-   - 요약
-   - 변경 내용
-   - 범위(In/Out of scope)
-   - 검증 방법
-   - 관련 이슈
-3. 사용자에게 적용 범위를 묻는다:
-   - 현재 프로젝트만
-   - 전역 기본 템플릿
-4. 기존 템플릿이 있으면 병합/대체 여부를 확인한다.
-5. 선택한 방식으로 템플릿을 반영한다.
-6. 샘플 PR 본문 1개를 함께 제공한다.
+## Agent Apply Instructions
+1. Check whether the repository already has a PR template file.
+2. Present the proposed template sections to the user:
+   - Summary
+   - Changes
+   - Scope (In / Out of scope)
+   - Validation
+   - Related Issue
+3. Ask the user for the apply scope:
+   - current project only
+   - global default template
+4. If an existing template exists, ask whether to merge or replace it.
+5. Apply the template using the selected strategy.
+6. Provide one sample PR body.
 
-## 완료 기준
-- 새 PR 작성 시 템플릿이 자동으로 노출되어야 한다.
+## Done Criteria
+- The template should appear automatically when a new PR is created.

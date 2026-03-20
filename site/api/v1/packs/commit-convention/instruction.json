@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2026-03-11",
   "packId": "commit-convention",
-  "revision": 2,
+  "revision": 3,
   "contractVersion": "instruction.v1",
   "confirmationFlow": {
     "selectionRequired": true,

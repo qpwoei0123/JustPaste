@@ -1,19 +1,19 @@
 # Commit Convention
 
-## 목적
-커밋 메시지를 컨벤셔널 커밋 형식으로 통일해 히스토리 가독성을 높인다.
+## Goal
+Standardize commit messages in conventional-commit format so the history stays easy to read.
 
-## 에이전트 적용 지침
-1. 현재 저장소의 기존 커밋 스타일을 확인한다.
-2. 사용자에게 기본 규칙을 제시한다:
-   - 형식: `<type>(<scope>): <summary>`
-   - 예시 type: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`
-3. 사용자에게 적용 범위를 묻는다:
-   - 프로젝트 전용
-   - 전역 기본값
-4. 기존 규칙 파일이 있으면 덮어쓰기 여부를 확인한다.
-5. 선택된 범위에 맞게 규칙 문서(예: WORK_RULES.md, CONTRIBUTING.md) 반영을 안내/수행한다.
-6. 마지막에 샘플 커밋 2개를 보여준다.
+## Agent Apply Instructions
+1. Inspect the repository's existing commit style.
+2. Present the base rule to the user:
+   - format: `<type>(<scope>): <summary>`
+   - example types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`
+3. Ask the user for the apply scope:
+   - project-only
+   - global default
+4. If an existing rule file is present, ask whether it should be overwritten.
+5. Guide or apply the rule update in the selected scope, for example in `WORK_RULES.md` or `CONTRIBUTING.md`.
+6. Finish by showing two sample commit messages.
 
-## 완료 기준
-- 사용자가 다음 커밋에서 동일 형식을 반복 사용할 수 있어야 한다.
+## Done Criteria
+- The user should be able to repeat the same format in the next commit.

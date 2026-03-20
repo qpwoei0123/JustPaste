@@ -1,10 +1,10 @@
 {
   "id": "pr-clarity-template",
   "name": "PR Clarity Template",
-  "summary": "PR 설명을 요약/범위/검증 중심으로 통일합니다.",
-  "description": "PR 본문 템플릿과 리뷰 맥락을 정리하도록 안내하는 팩입니다.",
+  "summary": "Standardize PR descriptions around summary, scope, and validation.",
+  "description": "A pack that guides a concise PR body template and better review context.",
   "version": "1.1.0",
-  "revision": 2,
+  "revision": 3,
   "risk": "low",
   "applyScopes": ["project", "global"],
   "tags": ["github", "pull-request", "template"],
